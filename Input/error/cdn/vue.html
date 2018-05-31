@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error {
+            font-size: 10px;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        Enter a text between 3 and 7 characters
+    </div>
+    <input v-model="message"/>
+    <div>
+        {{message}}
+    </div>
+    <div class="error" v-if="status">
+        Error
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: ''
+    },
+    computed: {
+      status () {
+        return !(this.message.length > 2 && this.message.length < 8)
+      }
+    }
+  })
+</script>
+</body>
+</html>

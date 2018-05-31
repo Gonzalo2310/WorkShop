@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <table style="width:100%">
+        <thead>
+        <tr>
+        <td>Price Unit</td>
+        <td>Quantity</td>
+        <td>Sum</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(line, index) in lines" :key="index">
+            <td><input v-model="line.unitPrice" /></td>
+            <td><input v-model="line.quantity" /></td>
+            <td>{{line.unitPrice * line.quantity}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <table style="width:100%">
+        <thead>
+        <tr>
+        <td>Sum Price Unit</td>
+        <td>Sum Quantity</td>
+        <td>Sum Absolute</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                {{sumPrice}}
+            </td>
+            <td>
+                {{sumQuantity}}
+            </td>
+            <td>
+                {{sumAbsolute}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button @click="newLine()">Add line</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      templateObject: {
+        unitPrice: 0,
+        quantity: 0
+      },
+      lines: []
+    },
+    mounted: function() {
+      this.newLine()
+    },
+    methods: {
+      newLine() {
+        this.lines.push(Object.assign({}, this.templateObject))
+      }
+    },
+    computed: {
+      sumPrice() {
+        let result = 0
+        this.lines.forEach(element => result += parseFloat(element.unitPrice))
+        return isNaN(result) ? 0 : result
+      },
+      sumQuantity() {
+        let result = 0
+        this.lines.forEach(element => result += parseFloat(element.quantity))
+        return isNaN(result) ? 0 : result
+      },
+      sumAbsolute () {
+        let result = 0
+        this.lines.forEach(element => result += parseFloat(element.quantity) * parseFloat(element.unitPrice))
+        return isNaN(result) ? 0 : result
+      }
+    }
+  })
+</script>
+</body>
+</html>

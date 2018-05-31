@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error {
+            font-size: 10px;
+            color: #ff0000;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    Enter a text between 3 and 7 characters
+</div>
+<input id="origin" onkeyup="update()"/>
+<div id="destinity">
+
+</div>
+<div id="error" class="error">
+    Error
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+  function update () {
+    let text = $('#origin').val()
+    $('#destinity').empty().append(text)
+   if (text.length > 2 && text.length < 8) {
+     $('#error').addClass('hidden')
+   } else {
+     $('#error').removeClass('hidden')
+   }
+  }
+</script>
+</body>
+</html>

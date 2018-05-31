@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table style="width:100%" >
+    <thead>
+    <tr>
+        <td>Price Unit</td>
+        <td>Quantity</td>
+        <td>Sum</td>
+    </tr>
+    </thead>
+    <tbody id="tablePrice">
+    </tbody>
+</table>
+<table style="width:100%">
+    <thead>
+    <tr>
+        <td>Sum Price Unit</td>
+        <td>Sum Quantity</td>
+        <td>Sum Absolute</td>
+    </tr>
+    </thead>
+    <tbody id="tableSum">
+
+    </tbody>
+</table>
+<button onclick="newLine()">Add line</button>
+
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+    let templateObject = {
+      unitPrice: 0,
+      quantity: 0
+    }
+    let lines= []
+    newLine()
+  function newLine() {
+    lines.push(Object.assign({}, templateObject))
+    updateContent()
+  }
+  function updateContent () {
+      $('#tablePrice').empty()
+        let sumPrice = 0
+      let sumQuantity = 0
+      let sumAbsolute = 0
+      lines.forEach(function(element, index) {
+        $('#tablePrice').append(templateTablePrice(element.unitPrice, element.quantity, index))
+        sumPrice += element.unitPrice
+        sumQuantity += element.quantity
+        sumAbsolute +=  element.unitPrice * element.quantity
+      })
+    $('#tableSum').empty().append(templateTableSum(sumPrice, sumQuantity, sumAbsolute))
+
+  }
+  function templateTablePrice(price, quantity, index) {
+      return '<tr><td><input id="price' + index + '"  value="' + price + '" onchange="updatePrice(' + index + ')"/></td><td><input id="quantity' + index + '" value="' + quantity + '"  onchange="updatePrice(' + index + ')" /></td><td>' + price*quantity + '</td></tr>'
+  }
+    function templateTableSum(price, quantity, sum) {
+      return '<tr><td>' + price + '</td><td>' + quantity + '</td><td>' + sum + '</td></tr>'
+    }
+    function updatePrice(index) {
+      lines[index].unitPrice = parseFloat($('#price'+index).val())
+      lines[index].quantity = parseFloat($('#quantity'+index).val())
+      updateContent()
+    }
+
+</script>
+</body>
+</html>
