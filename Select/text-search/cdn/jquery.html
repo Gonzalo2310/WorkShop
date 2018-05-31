@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
+    <style>
+        select {
+            min-width: 100px;
+        }
+
+        .box-data {
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<select id="animalSelected"></select>
+<input id="filterText" />
+<div class="box-data" id="box-data"></div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+  let animals = [
+    {
+      id: 1,
+      name: 'Cat'
+    },
+    {
+      id: 2,
+      name: 'Dog'
+    },
+    {
+      id: 3,
+      name: 'Fox'
+    },
+    {
+      id: 4,
+      name: 'Bird'
+    },
+    {
+      id: 5,
+      name: 'Fish'
+    }
+    ]
+  let animalsList = animals
+  init()
+
+  $('#animalSelected').on('change', function (evt) {
+    $('#box-data').empty().append(templateBoxData($('#animalSelected').val(), $('#animalSelected option:selected').text()))
+  })
+  $('#filterText').on('input', function(evt){
+    animalsList= animals.filter(element => element.name.toUpperCase().indexOf($('#filterText').val().toUpperCase()) > -1)
+    init()
+  })
+  function init () {
+    $('#animalSelected').empty()
+    animalsList.forEach(element => $('#animalSelected').append(templateOption(element.id, element.name)))
+    if (animalsList.length > 0) {
+      $('#box-data').empty().append(templateBoxData(animalsList[0].id, animalsList[0].name))
+    } else {
+      $('#box-data').empty().append(templateBoxData(0, ''))
+    }
+  }
+
+  function templateOption (id, name) {
+    return '<option value="' + id + '">' + name + '</option>'
+  }
+  function templateBoxData(value, text){
+    return 'id: ' + value + ' animal: ' + text
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet" />
+    <style>
+        select {
+            min-width: 100px;
+        }
+        .box-data {
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+   <select v-model="animalSelected">
+       <option v-for="animal in animalsList" :ref="animal.id" :value="animal.id">{{animal.name}}</option>
+   </select>
+    <input v-model="filterText" />
+    <div class="box-data">
+        id: {{animalSelected}}, animal: {{animalName}}
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      animalSelected: 1,
+      filterText: '',
+      animals: [
+        {
+          id: 1,
+          name: 'Cat'
+        },
+        {
+          id: 2,
+          name: 'Dog'
+        },
+        {
+          id: 3,
+          name: 'Fox'
+        },
+        {
+          id: 4,
+          name: 'Bird'
+        },
+        {
+          id: 5,
+          name: 'Fish'
+        }
+      ]
+    },
+    watch: {
+      filterText: function(value) {
+        this.animalSelected = (this.animalsList.length > 0) ? this.animalsList[0].id : 0
+      }
+    },
+    computed: {
+      animalName () {
+        let result = this.animalsList.find(element => element.id === this.animalSelected)
+        if (result) return result.name
+        return ''
+      },
+      animalsList () {
+        return this.animals.filter(element => element.name.toUpperCase().indexOf(this.filterText.toUpperCase()) > -1)
+      }
+    }
+  })
+</script>
+</body>
+</html>
