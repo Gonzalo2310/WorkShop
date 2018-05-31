@@ -17,7 +17,7 @@
 <div>
     Enter a text between 3 and 7 characters
 </div>
-<input id="origin" onkeyup="update()"/>
+<input id="origin"/>
 <div id="destinity">
 
 </div>
@@ -29,15 +29,16 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script>
-  function update () {
+  $("#origin").on("input", function(evt) {
     let text = $('#origin').val()
     $('#destinity').empty().append(text)
-   if (text.length > 2 && text.length < 8) {
-     $('#error').addClass('hidden')
-   } else {
-     $('#error').removeClass('hidden')
-   }
-  }
+    if (text.length > 2 && text.length < 8) {
+      $('#error').addClass('hidden')
+    } else {
+      $('#error').removeClass('hidden')
+    }
+  });
+
 </script>
 </body>
 </html>

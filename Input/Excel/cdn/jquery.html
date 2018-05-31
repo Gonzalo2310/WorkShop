@@ -28,7 +28,7 @@
 
     </tbody>
 </table>
-<button onclick="newLine()">Add line</button>
+<button id="new_line">Add line</button>
 
 </div>
 <script
@@ -71,7 +71,9 @@
       lines[index].quantity = parseFloat($('#quantity'+index).val())
       updateContent()
     }
-
+    $("#new_line").on("click", function(evt) {
+      newLine()
+    });
 </script>
 </body>
 </html>

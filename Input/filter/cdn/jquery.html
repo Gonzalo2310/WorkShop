@@ -5,17 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<input id="origin"/>
-<div id="destinity">
-
-</div>
+<input id="allow_decimal" />
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script>
-  $("#origin").on("input", function(evt) {
-    $('#destinity').empty().append($('#origin').val())
+  $("#allow_decimal").on("input", function(evt) {
+    var self = $("#allow_decimal");
+    self.val(self.val().charAt(0).toUpperCase() + self.val().slice(1));
   });
 </script>
 </body>
