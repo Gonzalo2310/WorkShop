@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet" />
+    <style>
+        select {
+            min-width: 100px;
+        }
+        .box-data {
+            padding: 5px;
+            margin-top: 10px;
+        }
+        .grid-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 10px;
+        }
+        .decore-box {
+            border: 1px solid #000000;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .item {
+            padding: 10px;
+        }
+        .item image {
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="grid-list">
+   <select v-model="animalSelected">
+       <option v-for="animal in animals" :ref="animal.id" :value="animal.id">{{animal.name}}</option>
+   </select>
+        <div class="decore-box">
+            <div>
+                <input v-model="newAnimal"/>
+                <button :disabled="!newAnimal" @click="create">ADD</button> higher Id: {{higherId}}
+            </div>
+            <div v-for="(animal, index) in animals" :ref="animal.id" class="item"><span>{{animal.id}} - {{animal.name}}</span>
+            <img src="images/cancel.svg" width="12" @click="remove(index)">
+            </div>
+        </div>
+    </div>
+    <div class="box-data">
+        id: {{animalSelected}}, animal: {{animalName}}
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      animalSelected: 1,
+      newAnimal: '',
+      animals: [
+        {
+          id: 1,
+          name: 'Cat'
+        },
+        {
+          id: 2,
+          name: 'Dog'
+        },
+        {
+          id: 3,
+          name: 'Fox'
+        },
+        {
+          id: 4,
+          name: 'Bird'
+        },
+        {
+          id: 5,
+          name: 'Fish'
+        }
+      ]
+    },
+    methods: {
+      remove (index) {
+        this.animals.splice(index, 1)
+        this.animalSelected = (this.animals.length > 0) ? this.animals[0].id : 0
+      },
+      create() {
+        let id = (this.animals.length === 0) ? this.higherId : this.higherId +1
+        this.animals.push({
+          id,
+          name: this.newAnimal
+        })
+        this.newAnimal = ''
+        if (this.animals.length === 1 ) this.animalSelected = id
+      }
+    },
+    computed: {
+      animalName () {
+        if (this.animals.length === 0) return ''
+        return this.animals.find(element => element.id === this.animalSelected).name
+      },
+      higherId () {
+        if (this.animals.length === 0) return 1
+        let result = 1
+        this.animals.forEach(element => result = (element.id > result) ? element.id : result)
+        return result
+      }
+    }
+  })
+</script>
+</body>
+</html>

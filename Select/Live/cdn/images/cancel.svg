@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="64 0 64 64" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <radialGradient id="a" cx="15.891" cy="15.163" r="27.545" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#00f038" stop-opacity="0" offset="1"/>
+  </radialGradient>
+  <radialGradient id="c" cx="16.028" cy="16.847" r="27.545" gradientTransform="matrix(.91888 .94532 -.71707 .69701 13.381 -10.047)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#9bffb3" offset="0"/>
+   <stop stop-color="#00f038" offset="1"/>
+  </radialGradient>
+  <radialGradient id="b" cx="16.028" cy="16.847" r="27.545" gradientTransform="matrix(.91888 .94532 -.71707 .69701 13.381 -10.047)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ff9b9b" offset="0"/>
+   <stop stop-color="#f00000" offset="1"/>
+  </radialGradient>
+ </defs>
+ <!--<g transform="translate(.5,-.5)">
+  <path transform="matrix(.99849 0 0 .99849 3.9962 4.8147)" d="m55.091 27.727a27.545 27.545 0 1 1 -55.091 0 27.545 27.545 0 1 1 55.091 0z" fill="url(#a)"/>
+  <path transform="matrix(.99849 0 0 .99849 3.9962 4.8147)" d="m55.091 27.727a27.545 27.545 0 1 1 -55.091 0 27.545 27.545 0 1 1 55.091 0z" fill="url(#c)" stroke="#00be31" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5038"/>
+  <path d="m47.25 15.71c-9.325 2.5083-17.627 10.014-19.25 19.781-3.9246-2.606-7.2172-7.9558-11.969-8.2188-3.1369 1.6334-10.434 5.8662-4.2812 8.3438 5.5045 4.2778 13.752 8.1309 15.062 15.562 2.689 2.5127 6.1669-1.059 8.9688-2 3.4741-5.6234-0.42848-13.37 2.9375-19.344 1.7386-5.634 7.8204-7.9146 11.281-12-0.00344-1.4831-1.3607-2.5102-2.75-2.125z" fill="#fff"/>
+ </g>-->
+ <g transform="translate(4.4998 -.5)">
+  <path transform="matrix(.99849 0 0 .99849 63.996 4.8147)" d="m55.091 27.727a27.545 27.545 0 1 1 -55.091 0 27.545 27.545 0 1 1 55.091 0z" fill="url(#a)"/>
+  <path transform="matrix(.99849 0 0 .99849 63.996 4.8147)" d="m55.091 27.727a27.545 27.545 0 1 1 -55.091 0 27.545 27.545 0 1 1 55.091 0z" fill="url(#b)" stroke="#be0000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5038"/>
+  <path d="m95.594 19.312c-1.798 1.5509-3.1446 4.3692-4.5312 5.8438-2.6315-2.177-3.8188-6.2358-6.6562-7.375-3.4406 0.91828-8.9042 4.1354-4.875 7.625 2.0576 3.0423 6.1945 5.7464 7.1562 8.9062-1.4673 3.7894-4.291 6.615-7.0312 9.375 1.3399 4.6754 7.7548 0.52478 10.344-1.75 2.0648-4.6338 3.5683 0.89824 5.4994 2.891 1.5405 6.2227 9.8042 4.4034 10.522-0.73944-2.8396-4.5489-6.7818-8.9244-9.521-13.402 1.0851-4.6542 5.6334-7.7704 6.6875-12.281-1.7893-3.1223-5.2813 0.35232-7.5938 0.90625z" fill="#fff"/>
+ </g>
+</svg>

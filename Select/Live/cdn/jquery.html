@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
+    <style>
+        select {
+            min-width: 100px;
+        }
+
+        .box-data {
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 10px;
+        }
+
+        .decore-box {
+            border: 1px solid #000000;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .item {
+            padding: 10px;
+        }
+
+        .item image {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="grid-list">
+    <select id="animalSelected"></select>
+    <div class="decore-box">
+        <div>
+            <input id="newAnimal"/>
+            <button id="buttonAdd" disabled>ADD</button>
+            <span id="higherId"></span>
+            <div id="listArrayAnimals">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box-data" id="box-data"></div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+  let animals = [
+    {
+      id: 1,
+      name: 'Cat'
+    },
+    {
+      id: 2,
+      name: 'Dog'
+    },
+    {
+      id: 3,
+      name: 'Fox'
+    },
+    {
+      id: 4,
+      name: 'Bird'
+    },
+    {
+      id: 5,
+      name: 'Fish'
+    }
+  ]
+  init()
+
+  $('#animalSelected').on('change', function (evt) {
+    $('#box-data').empty().append(templateBoxData({
+      id: $('#animalSelected').val(),
+      name: $('#animalSelected option:selected').text()
+    }))
+  })
+
+  $('#newAnimal').on('input', function(evt){
+    if ($('#newAnimal').val()) $('#buttonAdd').removeAttr('disabled')
+    else $('#buttonAdd').attr('disabled', true)
+  })
+
+  $('#buttonAdd').on('click', function (evt){
+    let id = (animals.length === 0) ? higherId() : higherId() + 1
+    animals.push({
+      id,
+      name: $('#newAnimal').val()
+    })
+    $('#newAnimal').val('')
+    $('#buttonAdd').attr('disabled', true)
+    init()
+  })
+
+  function init () {
+    $('#animalSelected').empty()
+    $('#listArrayAnimals').empty()
+    animals.forEach(function (element, index){
+      $('#animalSelected').append(templateOption(element))
+      $('#listArrayAnimals').append(templateListAnimals(element, index))
+    })
+    $('#box-data').empty().append((animals.length > 0) ? templateBoxData(animals[0]) : templateBoxData({id:0, name:''}) )
+    $('#higherId').empty().append('Higher Id: ' + higherId())
+  }
+
+  function remove (index) {
+    animals.splice(index, 1)
+    init()
+  }
+  function higherId () {
+    if (animals.length === 0) return 1
+    let result = 1
+    animals.forEach(element => result = (element.id > result) ? element.id : result)
+    return result
+  }
+  function templateOption ({id, name}) {
+    return '<option value="' + id + '">' + name + '</option>'
+  }
+
+  function templateBoxData ({id, name}) {
+    return 'id: ' + id + ' animal: ' + name
+  }
+
+  function templateListAnimals ({id, name}, index) {
+    return '<div id="list' + index + '" class="item"><span>' + id + ' - ' + name + '  </span>' +
+      '<img src="images/cancel.svg" width="12" onclick="remove(' + index + ')">' +
+      '</div>'
+  }
+</script>
+</body>
+</html>
