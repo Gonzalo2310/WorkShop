@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8abbd68-e0b8-4670-94f4-364aa9040e39" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Select/complex/cdn/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Select/complex/cdn/jquery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Select/complex/cdn/vue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Select/complex/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,15 +11,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="37486" />
+    <option name="totalTimeSeconds" value="37908" />
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Select/complex/cdn/jquery.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
+            <state relative-caret-position="236">
+              <caret line="101" column="7" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
               <folding>
                 <element signature="e#793#1453#0" />
               </folding>
@@ -32,10 +28,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Select/complex/cdn/vue.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+            <state relative-caret-position="108">
+              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               <folding>
                 <element signature="e#666#1701#0" />
               </folding>
@@ -80,6 +85,7 @@
         <option value="$PROJECT_DIR$/Select/Live/cdn/jquery.html" />
         <option value="$PROJECT_DIR$/Select/complex/cdn/vue.html" />
         <option value="$PROJECT_DIR$/Select/complex/cdn/jquery.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -122,37 +128,6 @@
             <path>
               <item name="WorkShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="WorkShop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WorkShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WorkShop" type="462c0819:PsiDirectoryNode" />
-              <item name="Select" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WorkShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WorkShop" type="462c0819:PsiDirectoryNode" />
-              <item name="Select" type="462c0819:PsiDirectoryNode" />
-              <item name="complex" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WorkShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WorkShop" type="462c0819:PsiDirectoryNode" />
-              <item name="Select" type="462c0819:PsiDirectoryNode" />
-              <item name="complex" type="462c0819:PsiDirectoryNode" />
-              <item name="cdn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WorkShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WorkShop" type="462c0819:PsiDirectoryNode" />
-              <item name="Select" type="462c0819:PsiDirectoryNode" />
-              <item name="easy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WorkShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WorkShop" type="462c0819:PsiDirectoryNode" />
-              <item name="Select" type="462c0819:PsiDirectoryNode" />
-              <item name="easy" type="462c0819:PsiDirectoryNode" />
-              <item name="cdn" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -228,18 +203,18 @@
       <workItem from="1527781829060" duration="4546000" />
       <workItem from="1527800868156" duration="5682000" />
       <workItem from="1527855229865" duration="11432000" />
-      <workItem from="1527980923439" duration="6385000" />
+      <workItem from="1527980923439" duration="6808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49348000" />
+    <option name="totallyTimeSpent" value="49771000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1024" height="676" extended-state="6" />
+    <frame x="0" y="23" width="1024" height="674" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24439919" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24439919" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -251,11 +226,11 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Translations" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="TagMyCode" order="9" />
+      <window_info anchor="bottom" id="TagMyCode" order="9" weight="0.3291592" />
       <window_info anchor="bottom" id="Regex Tester" order="10" />
       <window_info anchor="bottom" id="hashGenerator" order="11" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" weight="0.3291592" />
+      <window_info anchor="bottom" id="Terminal" order="13" visible="true" weight="0.32737032" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" weight="0.3291592" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -432,23 +407,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Select/complex/cdn/vue.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <element signature="e#666#1701#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Select/complex/cdn/jquery.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
+        <state relative-caret-position="236">
+          <caret line="101" column="7" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
           <folding>
             <element signature="e#793#1453#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Select/complex/cdn/vue.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-          <folding>
-            <element signature="e#666#1701#0" />
-          </folding>
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
