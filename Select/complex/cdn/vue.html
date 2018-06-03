@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
+    <style>
+        select {
+            min-width: 100px;
+        }
+
+        .grid-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="grid-data">
+        <select v-model="elementSelected">
+            <option v-for="(item, index) in elements" :ref="index" :value="index">{{item.name}}</option>
+        </select>
+        <select v-model="secondElementSelected">
+            <option v-for="(item, index) in secondList" :ref="index" :value="index">{{item.name}}</option>
+        </select>
+        <div>
+            <span>{{elements[elementSelected].name}} selected is: {{secondList[secondElementSelected].name}}</span>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      elementSelected: 0,
+      secondElementSelected: 0,
+      elements: [
+        {
+        name: 'animals',
+        children: [
+          {name: 'Cat'},
+          {name: 'Dogs'},
+          {name: 'Fish'},
+          {name: 'Fox'}
+        ]
+      },
+        {
+          name: 'Frameworks Js',
+          children: [
+            {name: 'Vue'},
+            {name: 'React'},
+            {name: 'Angular'},
+            {name: 'jQuery'}
+          ]
+        },
+        {
+          name: 'Languages',
+          children: [
+            {name: 'Java'},
+            {name: 'C++'},
+            {name: 'Python'},
+            {name: 'JavaScript'}
+          ]
+        },
+        {
+          name: 'Colors',
+          children: [
+            {name: 'Red'},
+            {name: 'Blue'},
+            {name: 'Pink'},
+            {name: 'Black'}
+          ]
+        }
+
+      ]
+    },
+    computed: {
+      secondList () {
+        return this.elements[this.elementSelected].children
+      }
+    }
+  })
+</script>
+</body>
+</html>

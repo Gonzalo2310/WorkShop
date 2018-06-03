@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
+    <style>
+        select {
+            min-width: 100px;
+        }
+
+        .grid-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="grid-data">
+    <select id="elementSelected">
+    </select>
+    <select id="secondElementSelected">
+    </select>
+    <div id="selected">
+    </div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+  let elements = [
+    {
+      name: 'animals',
+      children: [
+        {name: 'Cat'},
+        {name: 'Dogs'},
+        {name: 'Fish'},
+        {name: 'Fox'}
+        ]
+    },
+    {
+      name: 'Frameworks Js',
+      children: [
+        {name: 'Vue'},
+        {name: 'React'},
+        {name: 'Angular'},
+        {name: 'jQuery'}
+        ]
+    },
+    {
+      name: 'Languages',
+      children: [
+        {name: 'Java'},
+        {name: 'C++'},
+        {name: 'Python'},
+        {name: 'JavaScript'}
+        ]
+    },
+    {
+      name: 'Colors',
+      children: [
+        {name: 'Red'},
+        {name: 'Blue'},
+        {name: 'Pink'},
+        {name: 'Black'}
+        ]
+    }
+
+    ]
+  init()
+
+  $('#elementSelected').on('change', function (evt) {
+    $('#secondElementSelected').empty()
+    elements[$('#elementSelected').val()].children.forEach((item, index) => $('#secondElementSelected').append(templateOptionsecond(index, item.name)))
+    $('#selected').empty().append(templateBoxData(elements[$('#elementSelected').val()].name, elements[$('#elementSelected').val()].children[$('#secondElementSelected').val()].name))
+  })
+  $('#secondElementSelected').on('change', function (evt) {
+    $('#selected').empty().append(templateBoxData(elements[$('#elementSelected').val()].name, elements[$('#elementSelected').val()].children[$('#secondElementSelected').val()].name))
+  })
+  function init () {
+    $('#elementSelected').empty()
+    $('#secondElementSelected').empty()
+    elements.forEach((element, index) => $('#elementSelected').append(templateOptionElement(index, element.name)))
+    elements[$('#elementSelected').val()].children.forEach((item, index) => $('#secondElementSelected').append(templateOptionsecond(index, item.name)))
+    $('#selected').empty().append(templateBoxData(elements[$('#elementSelected').val()].name, elements[$('#elementSelected').val()].children[$('#secondElementSelected').val()].name))
+  }
+
+  function templateOptionElement (index, name) {
+    return '<option value="' + index + '">' + name + '</option>'
+  }
+  function templateOptionsecond (index, name) {
+    return '<option value="' + index + '">' + name + '</option>'
+  }
+  function templateBoxData(element, second){
+    return '<span>' + element +' selected is: ' + second + '</span>'
+  }
+</script>
+</body>
+</html>
