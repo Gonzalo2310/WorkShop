@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>Vue Input</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="app">
-    <input v-model="message"/>
-    <div>
-        {{message}}
-    </div>
+    <form class="pure-form pure-form-stacked">
+        <input v-model="message" />
+        <fieldset>
+            <legend>{{message}}</legend>
+        </fieldset>
+    </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>

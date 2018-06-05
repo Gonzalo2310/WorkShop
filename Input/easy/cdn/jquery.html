@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jQuery Input</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
 </head>
 <body>
-<input id="origin"/>
-<div id="destinity">
-
-</div>
+<form class="pure-form pure-form-stacked">
+    <input id="origin"/>
+    <fieldset>
+        <legend id="destinity"></legend>
+    </fieldset>
+</form>
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script>
-  $("#origin").on("input", function(evt) {
+  $('#origin').on('input', function (evt) {
     $('#destinity').empty().append($('#origin').val())
-  });
+  })
 </script>
 </body>
 </html>
