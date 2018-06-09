@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>Vue Filter</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="app">
-<input v-model="dataCapitalize" />
+    <form class="pure-form pure-form-stacked">
+        <input v-model="dataCapitalize" />
+        <fieldset>
+            <legend>{{dataCapitalize | capitalize}}</legend>
+        </fieldset>
+    </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
@@ -16,9 +21,16 @@
     data: {
       dataCapitalize: ''
     },
-    watch: {
-      dataCapitalize: function (value) {
-        this.dataCapitalize = value.charAt(0).toUpperCase() + value.slice(1)
+    filters: {
+      capitalize: function (value) {
+        if (!value) return ''
+        value = value.toString()
+        let temporal = value.split(' ')
+        let response = ''
+        temporal.forEach(function(element) {
+          response += element.charAt(0).toUpperCase() + element.slice(1) + ' '
+        })
+        return response
       }
     }
   })

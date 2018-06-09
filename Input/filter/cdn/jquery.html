@@ -2,19 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jQuery Filter</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
 </head>
 <body>
-<input id="allow_decimal" />
+<form class="pure-form pure-form-stacked">
+    <input id="allow_decimal"/>
+    <fieldset>
+        <legend>
+            <div id="content_decimal">
+            </div>
+        </legend>
+    </fieldset>
+</form>
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script>
-  $("#allow_decimal").on("input", function(evt) {
-    var self = $("#allow_decimal");
-    self.val(self.val().charAt(0).toUpperCase() + self.val().slice(1));
-  });
+  $('#allow_decimal').on('input', function (evt) {
+    let self = $('#allow_decimal').val()
+    $('#content_decimal').empty().append(filterContent(self))
+  })
+    function filterContent (cadena) {
+      let temporal = cadena.split(' ')
+      let response = ''
+      temporal.forEach(function (element) {
+        response += element.charAt(0).toUpperCase() + element.slice(1) + ' '
+      })
+      return response
+    }
 </script>
 </body>
 </html>
