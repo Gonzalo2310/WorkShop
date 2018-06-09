@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>Vue SpreadsSheet</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/purecss@1.0.0/build/tables-min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/purecss@1.0.0/build/buttons-min.css" rel="stylesheet"/>
+    <style>
+        table {
+            table-layout: fixed;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
-    <table style="width:100%">
+    <form class="pure-form pure-form-stacked">
+    <table style="width:100%" class="pure-table pure-table-bordered">
         <thead>
         <tr>
-        <td>Price Unit</td>
-        <td>Quantity</td>
-        <td>Sum</td>
+        <th>Price Unit</th>
+        <th>Quantity</th>
+        <th>Sum</th>
         </tr>
         </thead>
         <tbody>
@@ -23,12 +31,12 @@
         </tr>
         </tbody>
     </table>
-    <table style="width:100%">
+    <table style="width:100%" class="pure-table pure-table-bordered">
         <thead>
         <tr>
-        <td>Sum Price Unit</td>
-        <td>Sum Quantity</td>
-        <td>Sum Absolute</td>
+        <th>Sum Price Unit</th>
+        <th>Sum Quantity</th>
+        <th>Sum Absolute</th>
         </tr>
         </thead>
         <tbody>
@@ -45,7 +53,10 @@
         </tr>
         </tbody>
     </table>
-    <button @click="newLine()">Add line</button>
+    </form>
+    <div style="padding: 20px;text-align: center">
+        <button @click="newLine()" class="pure-button">Add line</button>
+    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>

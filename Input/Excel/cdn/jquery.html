@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jQuery SpreadsSheet</title>
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/purecss@1.0.0/build/tables-min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/purecss@1.0.0/build/buttons-min.css" rel="stylesheet"/>
+    <style>
+        table {
+            table-layout: fixed;
+        }
+    </style>
 </head>
 <body>
-<table style="width:100%" >
+<form class="pure-form pure-form-stacked">
+<table style="width:100%" class="pure-table pure-table-bordered">
     <thead>
     <tr>
         <td>Price Unit</td>
@@ -16,7 +25,7 @@
     <tbody id="tablePrice">
     </tbody>
 </table>
-<table style="width:100%">
+<table style="width:100%" class="pure-table pure-table-bordered">
     <thead>
     <tr>
         <td>Sum Price Unit</td>
@@ -28,8 +37,9 @@
 
     </tbody>
 </table>
-<button id="new_line">Add line</button>
-
+</form>
+<div style="padding: 20px;text-align: center">
+    <button id="new_line" class="pure-button">Add line</button>
 </div>
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
