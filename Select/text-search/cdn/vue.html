@@ -3,26 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
     <style>
         select {
-            min-width: 100px;
+            min-width: 150px;
         }
+
+        .pure-form-stacked select {
+            margin: auto;
+        }
+
         .box-data {
             padding: 5px;
-            margin-top: 10px;
+            margin: 10px auto auto;
+        }
+
+        legend {
+            text-align: center;
+        }
+        .pure-form-stacked input:not([type]) {
+            margin:auto;
+            min-width: 150px;
         }
     </style>
 </head>
 <body>
 <div id="app">
-   <select v-model="animalSelected">
-       <option v-for="animal in animalsList" :ref="animal.id" :value="animal.id">{{animal.name}}</option>
-   </select>
-    <input v-model="filterText" />
-    <div class="box-data">
-        id: {{animalSelected}}, animal: {{animalName}}
-    </div>
+    <form class="pure-form pure-form-stacked">
+        <input v-model="filterText"/>
+        <select v-model="animalSelected">
+            <option v-for="animal in animalsList" :ref="animal.id" :value="animal.id">{{animal.name}}</option>
+        </select>
+        <div class="box-data">
+            <fieldset>
+                <legend>
+                    id: {{animalSelected}}, animal: {{animalName}}
+                </legend>
+            </fieldset>
+        </div>
+    </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
@@ -55,7 +74,7 @@
       ]
     },
     watch: {
-      filterText: function(value) {
+      filterText: function (value) {
         this.animalSelected = (this.animalsList.length > 0) ? this.animalsList[0].id : 0
       }
     },

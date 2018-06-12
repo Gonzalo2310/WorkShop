@@ -9,15 +9,24 @@
             min-width: 100px;
         }
 
+        .pure-form-stacked select {
+            margin: auto;
+        }
+
         .box-data {
             padding: 5px;
-            margin-top: 10px;
+            margin: 10px auto auto;
+        }
+        legend {
+            text-align:center;
         }
     </style>
 </head>
 <body>
+<form class="pure-form pure-form-stacked">
 <select id="animalSelected"></select>
 <div class="box-data" id="box-data"></div>
+</form>
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -60,7 +69,7 @@
     return '<option value="' + id + '">' + name + '</option>'
   }
   function templateBoxData(value, text){
-    return 'id: ' + value + ' animal: ' + text
+    return '<fieldset><legend>id: ' + value + ' animal: ' + text +'</legend></fieldset>'
   }
 </script>
 </body>

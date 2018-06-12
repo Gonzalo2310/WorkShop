@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
     <style>
         select {
             min-width: 100px;
         }
+
+        .pure-form-stacked select {
+            margin: auto;
+        }
+
         .box-data {
             padding: 5px;
-            margin-top: 10px;
+            margin: 10px auto auto;
+        }
+        legend {
+            text-align:center;
         }
     </style>
 </head>
 <body>
 <div id="app">
-   <select v-model="animalSelected">
-       <option v-for="animal in animals" :ref="animal.id" :value="animal.id">{{animal.name}}</option>
-   </select>
-    <div class="box-data">
-        id: {{animalSelected}}, animal: {{animalName}}
-    </div>
+    <form class="pure-form pure-form-stacked">
+        <select v-model="animalSelected">
+            <option v-for="animal in animals" :ref="animal.id" :value="animal.id">{{animal.name}}</option>
+        </select>
+        <div class="box-data">
+            <fieldset>
+                <legend>id: {{animalSelected}}, animal: {{animalName}}</legend>
+            </fieldset>
+        </div>
+    </form>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>

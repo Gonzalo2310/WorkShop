@@ -6,19 +6,34 @@
     <link href="https://unpkg.com/purecss@1.0.0/build/forms-min.css" rel="stylesheet"/>
     <style>
         select {
-            min-width: 100px;
+            min-width: 150px;
+        }
+
+        .pure-form-stacked select {
+            margin: auto;
         }
 
         .box-data {
             padding: 5px;
-            margin-top: 10px;
+            margin: 10px auto auto;
+        }
+
+        legend {
+            text-align: center;
+        }
+
+        .pure-form-stacked input:not([type]) {
+            margin: auto;
+            min-width: 150px;
         }
     </style>
 </head>
 <body>
-<select id="animalSelected"></select>
-<input id="filterText" />
-<div class="box-data" id="box-data"></div>
+<form class="pure-form pure-form-stacked">
+    <input id="filterText"/>
+    <select id="animalSelected"></select>
+    <div class="box-data" id="box-data"></div>
+</form>
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -45,17 +60,18 @@
       id: 5,
       name: 'Fish'
     }
-    ]
+  ]
   let animalsList = animals
   init()
 
   $('#animalSelected').on('change', function (evt) {
     $('#box-data').empty().append(templateBoxData($('#animalSelected').val(), $('#animalSelected option:selected').text()))
   })
-  $('#filterText').on('input', function(evt){
-    animalsList= animals.filter(element => element.name.toUpperCase().indexOf($('#filterText').val().toUpperCase()) > -1)
+  $('#filterText').on('input', function (evt) {
+    animalsList = animals.filter(element => element.name.toUpperCase().indexOf($('#filterText').val().toUpperCase()) > -1)
     init()
   })
+
   function init () {
     $('#animalSelected').empty()
     animalsList.forEach(element => $('#animalSelected').append(templateOption(element.id, element.name)))
@@ -69,8 +85,9 @@
   function templateOption (id, name) {
     return '<option value="' + id + '">' + name + '</option>'
   }
-  function templateBoxData(value, text){
-    return 'id: ' + value + ' animal: ' + text
+
+  function templateBoxData (value, text) {
+    return '<fieldset><legend>id: ' + value + ' animal: ' + text + '</legend></fieldset>'
   }
 </script>
 </body>
